@@ -224,7 +224,7 @@ public class LoginHandler {
 
             @Override
             public void onFailure(Throwable throwable) {
-                logger.error("Cannot connect to Discord!", throwable);
+                logger.error("Cannot connect to Discord! Error type 1", throwable);
             }
         });
     }
@@ -266,13 +266,13 @@ public class LoginHandler {
                         }
                     }
                 } catch (IOException e) {
-                    logger.error("Cannot connect to Discord!", e);
+                    logger.error("Cannot connect to Discord! Error type 2", e);
                 }
             }
 
             @Override
             public void onFailure(Throwable throwable) {
-                logger.error("Cannot connect to Discord!", throwable);
+                logger.error("Cannot connect to Discord! Error type 3", throwable);
                 if (commandSource != null) {
                     commandSource.sendMessage(Text.of(TextColors.RED, "Unable to login! Please check your login details or your email for login verification."));
                 }
