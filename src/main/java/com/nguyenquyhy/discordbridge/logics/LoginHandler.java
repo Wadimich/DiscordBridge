@@ -184,7 +184,9 @@ public class LoginHandler {
 
         if (commandSource != null)
             commandSource.sendMessage(Text.of(TextColors.GOLD, TextStyles.BOLD, "Logging in..."));
-
+        if (!client.isAutoReconnectEnabled()) {
+            client.setAutoReconnect(true);
+        }
         client.connect(new FutureCallback<DiscordAPI>() {
             @Override
             public void onSuccess(@Nullable DiscordAPI discordAPI) {
